@@ -16,6 +16,12 @@ class ThirdActivity : AppCompatActivity() {
 //        이전 화면에서 보내준 "message"라는 이름표가 붙어있는 String 추출
         val receivedMessage = intent.getStringExtra("message")
 
-        binding.txtMessage.text = receivedMessage
+//        이전 화면에서 보내준 "number"라는 Int 추출 => Int는 자바의 기본형 변수. 첨부 안될때를 따로 대비
+        val receivedNumber = intent.getIntExtra("number", -1)
+
+//        전달 문구 : ??
+//        전달 문구 : ?? => String 가공
+
+        binding.txtMessage.text = "전달 문구 : ${receivedMessage}\n전달 숫자 : ${receivedNumber}"
     }
 }
