@@ -1,18 +1,19 @@
 package kr.ac.wku.activity_20231029
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import kr.ac.wku.activity_20231029.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding : ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.btnSecond.setOnClickListener{
+        binding.btnSecond.setOnClickListener {
 
             val myIntent = Intent(this, SecondActivity::class.java)
 
@@ -34,6 +35,20 @@ class MainActivity : AppCompatActivity() {
 
 //            하나의 Intent에, 여러개의 변수 첨부 가능 (이름표만 잘 구별하자)
             myIntent.putExtra("number", inputNumber)
+
+            startActivity(myIntent)
+        }
+
+//        전화 걸기 버튼
+
+        binding.btnPhoneCall.setOnClickListener {
+//            입력한 전화번호 추출(변수 저장)
+
+            val inputPhoneNum = binding.edtPhoneNum.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+
+            val myIntent = Intent( Intent.ACTION_DIAL, myUri )
 
             startActivity(myIntent)
         }
