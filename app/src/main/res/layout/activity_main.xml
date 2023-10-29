@@ -16,5 +16,10 @@
             android:text="두번째 화면으로 이동"
             android:id="@+id/btnSecond"/>
 
+        <EditText
+            android:id="@+id/giveThirdMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="3번쩨 화면에 전달할 내용"/>
     </LinearLayout>
 </layout>
